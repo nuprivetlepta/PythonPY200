@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 144
-    length: 240
+    length: 95
     placeholder_text: |-
       #  TODO заменить на метод
               if not isinstance(capacity_volume, (int, float)):
@@ -16,21 +16,21 @@ files:
       length: 240
       offset: 144
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       self.capacity_volume = None
               self.init_capacity_volume(capacity_volume)
-  - offset: 609
-    length: 77
+  - offset: 464
+    length: 286
     placeholder_text: '#  TODO создать метод, который будет инициализировать атрибут
       capacity_volume'
     initial_state:
       length: 77
       offset: 609
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
           def init_capacity_volume(self, capacity_volume: Union[int, float]):
               if not isinstance(capacity_volume, (int, float)):
@@ -38,35 +38,35 @@ files:
               if not capacity_volume > 0:
                   raise ValueError
               self.capacity_volume = capacity_volume  # объем стакана
-  - offset: 720
-    length: 51
+  - offset: 783
+    length: 28
     placeholder_text: '...  # TODO инициализировать экземпляр класса Glass'
     initial_state:
       length: 51
       offset: 720
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: 'glass = Glass(200, 100)  # экземпляр класса'
-  - offset: 782
-    length: 48
+  - offset: 817
+    length: 71
     placeholder_text: '...)  # TODO распечатать атрибут capacity_volume'
     initial_state:
       length: 48
       offset: 782
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: glass.capacity_volume)
-  - offset: 841
-    length: 48
+  - offset: 894
+    length: 67
     placeholder_text: '...)  # TODO распечатать атрибут occupied_volume'
     initial_state:
       length: 48
       offset: 841
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: glass.occupied_volume)
   text: |
     from typing import Union
@@ -104,5 +104,8 @@ files:
     200
     100
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 01 Jun 2022 16:17:39 UTC
 record: -1

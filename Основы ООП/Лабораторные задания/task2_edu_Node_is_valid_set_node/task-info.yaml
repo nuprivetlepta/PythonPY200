@@ -36,12 +36,12 @@ files:
       offset: 399
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       self.next = None
               self.set_next(next_)
-  - offset: 601
-    length: 64
+  - offset: 655
+    length: 147
     placeholder_text: |-
       # TODO метод проверки корректности связываемого узла
               ...
@@ -49,13 +49,13 @@ files:
       length: 64
       offset: 601
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
        if not isinstance(node, (type(None), Node)):
                   raise TypeError
-  - offset: 739
-    length: 98
+  - offset: 869
+    length: 141
     placeholder_text: |-
       # TODO метод должен проверять корректность узла и устанавливать значение атрибуту next
               ...
@@ -64,11 +64,11 @@ files:
       offset: 739
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       self.is_valid(next_)
               self.next = next_
-  - offset: 871
+  - offset: 1044
     length: 50
     placeholder_text: '# TODO инициализируйте два узла с любыми значеними'
     initial_state:
@@ -76,11 +76,11 @@ files:
       offset: 871
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       first_node = Node(1)
           second_node = Node(2)
-  - offset: 927
+  - offset: 1150
     length: 36
     placeholder_text: '# TODO свяжите первый узел со вторым'
     initial_state:
@@ -88,7 +88,7 @@ files:
       offset: 927
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: first_node.set_next(second_node)
   text: |
     from typing import Any, Optional
@@ -127,5 +127,8 @@ files:
         print(first_node)
         print(second_node)
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 01 Jun 2022 17:46:14 UTC
 record: -1

@@ -12,15 +12,18 @@ class Node:
         """
         # TODO  инициализировать атрибуты экземпляра класса Node
         ...
-
+        self.value = value
+        self.next = next_
     # TODO реализовать метод __repr__ для отображения экземпляра
+    def __repr__(self) -> str:
+        return f"Node({self.value}, {self.next})"
 
 
 if __name__ == '__main__':
-    first_node = ...  # TODO инициализировать первый узел
+    first_node = Node(1)  # TODO инициализировать первый узел
 
-    second_node = ...  # TODO инициализировать второй узел
-    first_node.next = ...  # TODO через атрибут экземпляра устанавливаем первому узлу следующий узел
+    second_node = Node(2)  # TODO инициализировать второй узел
+    first_node.next = second_node   # TODO через атрибут экземпляра устанавливаем первому узлу следующий узел
 
     print(first_node)
     print(second_node)
