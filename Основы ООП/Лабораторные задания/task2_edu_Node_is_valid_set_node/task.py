@@ -19,6 +19,7 @@ class Node:
     def __repr__(self) -> str:
         return f"Node({self.value}, {self.next})"
 
+    # @staticmethod
     def is_valid(self, node: Any) -> None:
        # TODO метод проверки корректности связываемого узла
         if not isinstance(node, (Node, type(None))):

@@ -20,6 +20,7 @@ class Node:
 
     def __str__(self) -> str:
         ...  # TODO метод должен возвращать значение текущего узла
+        return f"{self.value}"
 
     def is_valid(self, node: Any) -> None:
         if not isinstance(node, (type(None), Node)):
@@ -45,5 +46,11 @@ if __name__ == "__main__":
     print(list_nodes)
 
     # TODO реализуйте алгоритм, который свяжет между собой узлы в списке
+    for i in range(len(list_nodes)-1):
+        # list_nodes[i].next = list_nodes[i+1]
+        # current_node = list_nodes[i]
+        # next_node = list_nodes[i+1]
+        # linked_nodes(current_node, next_node)
+        linked_nodes(list_nodes[i], list_nodes[i+1])
 
     print(list_nodes)

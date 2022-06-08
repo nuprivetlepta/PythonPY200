@@ -40,7 +40,7 @@ files:
     encrypted_possible_answer: |-
       self.next = None
               self.set_next(next_)
-  - offset: 655
+  - offset: 675
     length: 147
     placeholder_text: |-
       # TODO метод проверки корректности связываемого узла
@@ -54,7 +54,7 @@ files:
     encrypted_possible_answer: |2-
        if not isinstance(node, (type(None), Node)):
                   raise TypeError
-  - offset: 869
+  - offset: 889
     length: 141
     placeholder_text: |-
       # TODO метод должен проверять корректность узла и устанавливать значение атрибуту next
@@ -68,7 +68,7 @@ files:
     encrypted_possible_answer: |-
       self.is_valid(next_)
               self.next = next_
-  - offset: 1044
+  - offset: 1064
     length: 50
     placeholder_text: '# TODO инициализируйте два узла с любыми значеними'
     initial_state:
@@ -80,7 +80,7 @@ files:
     encrypted_possible_answer: |-
       first_node = Node(1)
           second_node = Node(2)
-  - offset: 1150
+  - offset: 1170
     length: 36
     placeholder_text: '# TODO свяжите первый узел со вторым'
     initial_state:
@@ -130,5 +130,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Wed, 01 Jun 2022 17:46:14 UTC
+  time: Mon, 06 Jun 2022 17:39:15 UTC
 record: -1
