@@ -70,4 +70,5 @@ class LinkedList:
         return f"{self.to_list()}"
 
 
-# TODO Реализовать класс DoubleLinkedList
+class DoubleLinkedList(LinkedList):
+    super().__init__()

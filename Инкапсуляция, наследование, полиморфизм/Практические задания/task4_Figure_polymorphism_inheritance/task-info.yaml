@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 238
-    length: 59
+    length: 138
     placeholder_text: '...  # TODO определить конструктор и перегрузить метод area'
     initial_state:
       length: 59
       offset: 238
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       def __init__(self, a, b):
               self.a = a
@@ -20,15 +20,15 @@ files:
           def area(self):
               print(f"Вызван метод класса {self.__class__.__name__}")
               return self.a * self.b
-  - offset: 364
-    length: 59
+  - offset: 443
+    length: 122
     placeholder_text: '...  # TODO определить конструктор и перегрузить метод area'
     initial_state:
       length: 59
       offset: 364
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       def __init__(self, r):
               self.r = r
@@ -80,5 +80,8 @@ files:
     Вызван метод класса Rectangle
     Вызван метод класса Circle
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 17 Jun 2022 10:21:26 UTC
 record: -1

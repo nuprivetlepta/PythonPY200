@@ -4,27 +4,27 @@ files:
   visible: true
   placeholders:
   - offset: 1740
-    length: 120
+    length: 47
     placeholder_text: '# TODO реализовать магический метод __setitem__'
     initial_state:
       length: 47
       offset: 1740
     initialized_from_dependency: false
-    selected: true
+    selected: false
     status: Solved
     encrypted_possible_answer: |-
       def __setitem__(self, index: int, value: Any) -> None:
               """ Метод устанавливает значение узла по указанному индексу. """
               node = self.step_by_step_on_nodes(index)
               node.value = value
-  - offset: 2259
-    length: 41
+  - offset: 2186
+    length: 52
     placeholder_text: '# TODO установить элементу с индексом 1 значение 100'
     initial_state:
       length: 52
       offset: 2186
     initialized_from_dependency: false
-    selected: true
+    selected: false
     status: Solved
     encrypted_possible_answer: linked_list[1] = 100
   text: |
@@ -158,5 +158,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Wed, 08 Jun 2022 17:47:46 UTC
+  time: Fri, 10 Jun 2022 12:51:42 UTC
 record: -1

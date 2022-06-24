@@ -20,7 +20,7 @@ files:
       length: 51
       offset: 779
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: glass2.capacity_volume, glass2.occupied_volume)
   - offset: 935
@@ -30,7 +30,7 @@ files:
       length: 37
       offset: 882
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: glass1.occupied_volume += 100
   - offset: 1085
@@ -79,6 +79,9 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
+- name: test_main.py
+  visible: true
+  learner_created: true
 status: Solved
 feedback:
   time: Wed, 01 Jun 2022 16:07:02 UTC

@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 429
-    length: 105
+    length: 77
     placeholder_text: '...  # TODO обернуть все значения в класс Node и поместить
       их в python список'
     initial_state:
@@ -12,31 +12,31 @@ files:
       offset: 429
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: '[Node(value) for value in data]'
-  - offset: 544
-    length: 181
+  - offset: 516
+    length: 46
     placeholder_text: '# TODO составьте алгоритм, который свяжет узлы'
     initial_state:
       length: 46
       offset: 516
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       for i in range(len(self.list_nodes) - 1):
                   current_node = self.list_nodes[i]
                   next_node = self.list_nodes[i + 1]
                   self.linked_nodes(current_node, next_node)
-  - offset: 731
-    length: 13
+  - offset: 568
+    length: 36
     placeholder_text: '# TODO каким должен быть этот метод?'
     initial_state:
       length: 36
       offset: 568
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: '@staticmethod'
   text: |
     from typing import Iterable, Optional
@@ -118,8 +118,5 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 08 Jun 2022 15:47:33 UTC
+status: Unchecked
 record: -1

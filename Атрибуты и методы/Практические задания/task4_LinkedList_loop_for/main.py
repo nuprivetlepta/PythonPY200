@@ -15,7 +15,7 @@ class LinkedList:
 
     def init_linked_list(self, data: Iterable):
         """ Метод, который создает вспомогательный список и связывает в нём узлы. """
-        self.list_nodes = [Node(value) for value in data]
+        self.list_nodes = [Node(value_) for value_ in data]
         self.head = self.list_nodes[0]
         self.len = len(self.list_nodes)
 

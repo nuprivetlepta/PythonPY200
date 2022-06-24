@@ -66,9 +66,29 @@ class LinkedList:
         node.value = value
 
     def __delitem__(self, index: int):
-        ...  # TODO проверка индекса
+        if not isinstance(index, int):  # Проверяем валидность индекса по типу.
+            raise TypeError
 
-        ...  # TODO алгоритм удаления
+        if not 0 <= index < self.len:   # Проверяем валидность индекса по диапазону значения.
+            raise IndexError
+
+        del_node = self.step_by_step_on_nodes(index)    # Находим ноду ранее написанным итератором
+
+        if del_node == self.head:   # Проверка удаляемой ноды, а ни первая ли она?
+            self.head = del_node.next   # Присваемваем голове списка "вторую" ноду.
+            del_node.value = None   # А НАДО ЛИ? Очищаем удаляемую ноду от значений, во имя памяти
+            del_node.next = None    # Отвязываем от удаляемой ноды информацию о следующей.
+        elif index == self.len - 1:    # Проверка удаляемой ноды, ни последняя ли она?
+            prev_node = self.step_by_step_on_nodes(index - 1)   # Объявляем предыдущую ноду
+            del_node.value = None   # Очищаем удаляемую ноду от значения, А НАДО ЛИ?
+            self.linked_nodes(prev_node, None)    # Очищаем у ставшей последней ноды ссылку next
+        else:
+            del_node.value = None   # Очищаем удаляемую ноду
+            prev_node = self.step_by_step_on_nodes(index - 1)   # Ищем предыдущую
+            next_node = self.step_by_step_on_nodes(index + 1)   # Ищем следующую
+            self.linked_nodes(prev_node, next_node)     # Связываем граничные ноды
+            del_node.next = None    # Убираем привязку удалённой ноды к следующей.
+        self.len -= 1    # После каждого выполнения метода убираем одну единицу из длины.
 
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]

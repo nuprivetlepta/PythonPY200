@@ -96,7 +96,31 @@ class LinkedList:
         return f"{self.to_list()}"
 
     def insert(self, index: int, value: Any) -> None:
-        ...  # TODO реализовать алгоритм вставки элемента
+        """
+
+        :param index: Место в списке, на котором будет стоять нода со значением
+        :param value: Значение, хранящееся в добавляемой ноде
+        :return: Метод ничего не возвращает, выполняет добавление в существующий список
+        """
+        if not isinstance(index, int):    # Проверяем тип индекса
+            raise TypeError
+        insert_node = Node(value)   # Создаём экземпляр класса с переданным значением
+
+        if 0 < index < self.len:    # Проверка индекса по условию
+            prev_node = self.step_by_step_on_nodes(index-1)    # Находим предыдущую ноду
+            current_node = self.step_by_step_on_nodes(index)    # Находим подвигаемую ноду.
+            self.linked_nodes(insert_node, current_node)    # Связываем нашу ноду с подвигаемой
+            self.linked_nodes(prev_node, insert_node)    # Связываем предыдущую ноду с вставленной.
+
+        elif index == 0:
+            current_node = self.head    # Заводим переменную с "головой" списка
+            self.linked_nodes(insert_node, current_node)    # Связываем вставляемую ноду с подвигаемой
+            self.head = insert_node    # Переназначаем "голову" списка
+
+        elif index >= self.len: # Проверка индекса, вне рамок нашего списка.
+            prev_node = self.step_by_step_on_nodes(self.len-1)    # Находим последнюю ноду
+            self.linked_nodes(prev_node, insert_node)   # Вставляем нашу ноду в конец списка
+        self.len += 1   # Увеличиваем длину списка после добавления.
 
 
 if __name__ == '__main__':

@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 388
-    length: 47
+    length: 14
     placeholder_text: '...  # TODO вызываем метод area базового класса'
     initial_state:
       length: 47
       offset: 388
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: super().area()
   text: |
     class Rectangle:
@@ -51,5 +51,8 @@ files:
     50
     538.195520835486
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 17 Jun 2022 10:23:59 UTC
 record: -1

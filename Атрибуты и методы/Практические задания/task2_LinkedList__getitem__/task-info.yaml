@@ -47,68 +47,68 @@ files:
   visible: true
   placeholders:
   - offset: 183
-    length: 32
+    length: 48
     placeholder_text: '...  # TODO добавить указатель на первый элемент'
     initial_state:
       length: 48
       offset: 183
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: 'self.head: Optional[Node] = None'
-  - offset: 516
-    length: 30
+  - offset: 532
+    length: 56
     placeholder_text: '...  # TODO инициализировать указатель на первый элемент'
     initial_state:
       length: 56
       offset: 532
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: self.head = self.list_nodes[0]
-  - offset: 1300
-    length: 86
+  - offset: 1346
+    length: 41
     placeholder_text: '# TODO проверка правильности типа индекса'
     initial_state:
       length: 41
       offset: 1346
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError
-  - offset: 1411
-    length: 47
+  - offset: 1412
+    length: 41
     placeholder_text: '...  # TODO чему равен начальный элемент?'
     initial_state:
       length: 41
       offset: 1412
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: self.head
-  - offset: 1467
-    length: 67
+  - offset: 1462
+    length: 57
     placeholder_text: '...  # TODO с помощью цикла for добраться до нужного узла'
     initial_state:
       length: 57
       offset: 1462
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       for _ in range(index):
                   current_node = current_node.next
-  - offset: 1689
-    length: 66
+  - offset: 1674
+    length: 49
     placeholder_text: '...  # TODO метод должен возвращать значение узла'
     initial_state:
       length: 49
       offset: 1674
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       node = self.step_by_step_on_nodes(index)
               return node.value
@@ -171,8 +171,5 @@ files:
 
         print(linked_list[1])
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 08 Jun 2022 16:11:25 UTC
+status: Unchecked
 record: -1
