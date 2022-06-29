@@ -3,8 +3,8 @@ files:
 - name: task.py
   visible: true
   placeholders:
-  - offset: 0
-    length: 955
+  - offset: 12
+    length: 954
     placeholder_text: '# TODO class Date'
     initial_state:
       length: 17

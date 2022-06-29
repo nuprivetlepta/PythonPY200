@@ -29,7 +29,7 @@ files:
     encrypted_possible_answer: |-
       def __repr__(self) -> str:
               return f"Node({self.value}, {self.next})"
-  - offset: 685
+  - offset: 686
     length: 44
     placeholder_text: '...  # TODO инициализировать первый узел'
     initial_state:
@@ -39,7 +39,7 @@ files:
     selected: true
     status: Solved
     encrypted_possible_answer: Node(1)
-  - offset: 749
+  - offset: 750
     length: 44
     placeholder_text: '...  # TODO инициализировать второй узел'
     initial_state:
@@ -49,7 +49,7 @@ files:
     selected: true
     status: Solved
     encrypted_possible_answer: Node(2)
-  - offset: 816
+  - offset: 817
     length: 87
     placeholder_text: '...  # TODO через атрибут экземпляра устанавливаем первому
       узлу следующий узел'

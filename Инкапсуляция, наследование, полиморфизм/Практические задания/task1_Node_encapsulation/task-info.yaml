@@ -32,7 +32,7 @@ files:
       length: 45
       offset: 934
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: self.__next = next_
   text: |

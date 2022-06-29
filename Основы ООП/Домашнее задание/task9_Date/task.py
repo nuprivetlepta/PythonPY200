@@ -1,3 +1,5 @@
+import sys
+
 class Date:
     def __init__(self, day: int, month: int, year: int) -> None:
         self.day = None

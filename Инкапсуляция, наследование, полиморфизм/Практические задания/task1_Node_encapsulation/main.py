@@ -37,3 +37,4 @@ if __name__ == "__main__":
     first_node.set_next(second_node)
 
     print(repr(first_node), repr(second_node))
+    print(Node.is_valid(Node, type(first_node)))

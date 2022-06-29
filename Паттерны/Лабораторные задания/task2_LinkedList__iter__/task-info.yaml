@@ -11,7 +11,7 @@ files:
       length: 85
       offset: 2238
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: |-
       current_node = self.head

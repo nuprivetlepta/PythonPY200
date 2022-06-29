@@ -15,6 +15,7 @@ class Node:
         self.value = value
         self.next = next_
     # TODO реализовать метод __repr__ для отображения экземпляра
+
     def __repr__(self) -> str:
         return f"Node({self.value}, {self.next})"
 

@@ -12,7 +12,7 @@ files:
       offset: 429
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '[Node(value) for value in data]'
   - offset: 516
     length: 46
@@ -22,7 +22,7 @@ files:
       offset: 516
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       for i in range(len(self.list_nodes) - 1):
                   current_node = self.list_nodes[i]
@@ -36,7 +36,7 @@ files:
       offset: 568
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '@staticmethod'
   text: |
     from typing import Iterable, Optional
@@ -118,5 +118,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 28 Jun 2022 18:52:54 UTC
 record: -1
