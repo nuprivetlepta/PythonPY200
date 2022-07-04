@@ -35,7 +35,7 @@ files:
       length: 36
       offset: 568
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: '@staticmethod'
   text: |

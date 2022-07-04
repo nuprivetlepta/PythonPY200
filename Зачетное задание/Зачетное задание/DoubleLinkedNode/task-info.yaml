@@ -51,5 +51,8 @@ files:
 - name: test_task.py
   visible: true
   learner_created: true
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 02 Jul 2022 13:51:04 UTC
 record: -1

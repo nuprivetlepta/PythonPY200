@@ -3,11 +3,6 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-- name: node.py
-  visible: true
-  text: |
-    ...
-  learner_created: false
 - name: tests/__init__.py
   visible: false
   learner_created: false
@@ -36,5 +31,13 @@ files:
     if __name__ == "__main__":
         ...
   learner_created: false
+- name: node.py
+  visible: true
+  text: |
+    ...
+  learner_created: false
+- name: doublenode.py
+  visible: true
+  learner_created: true
 status: Unchecked
 record: -1

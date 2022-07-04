@@ -46,3 +46,10 @@ class DoubleLinkedNode(Node):
             if self.prev is None \
             else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
         return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
+
+
+if __name__ == '__main__':
+    node_prev = Node("papa")
+    node_next = Node("mama")
+    node_1 = DoubleLinkedNode(123, node_prev, node_next)
+    print(repr(node_1))

@@ -1,6 +1,6 @@
 from typing import Any, Iterable, Optional
 
-from node import Node
+from юtask.py import Node
 
 
 class LinkedList:

@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 2357
-    length: 62
+    length: 38
     placeholder_text: '...  # TODO реализовать очистку списка'
     initial_state:
       length: 38
       offset: 2357
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       self.head = None
               self.tail = None
@@ -124,14 +124,14 @@ files:
   visible: true
   placeholders:
   - offset: 952
-    length: 58
+    length: 34
     placeholder_text: '# TODO переоределить метод __del__'
     initial_state:
       length: 34
       offset: 952
     initialized_from_dependency: false
-    selected: true
-    status: Solved
+    selected: false
+    status: Unchecked
     encrypted_possible_answer: |-
       def __del__(self):
               print("Вызван метод \"__del__\"")
@@ -172,8 +172,5 @@ files:
 
         # TODO переоределить метод __del__
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 29 Jun 2022 15:27:00 UTC
+status: Unchecked
 record: -1
