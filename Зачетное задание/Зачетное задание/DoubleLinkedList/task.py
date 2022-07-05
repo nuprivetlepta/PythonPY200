@@ -66,7 +66,7 @@ class LinkedList(MutableSequence):
         :param left_node: Левый или предыдущий узел
         :param right_node: Правый или следующий узел
         """
-        left_node.next(right_node)
+        left_node.next = right_node
 
     def __getitem__(self, index):
         """ Метод возвращает значение узла по указанному индексу. """
@@ -156,12 +156,15 @@ class DoubleLinkedList(LinkedList):
         :param left_node: Левый или предыдущий узел
         :param right_node: Правый или следующий узел
         """
-        left_node.next(right_node)
-        right_node.prev(left_node)
+        left_node.next = right_node
+        right_node.prev = left_node
 
 
 if __name__ == '__main__':
     data_ = ["mama", "papa", "sasha", "lera", "ya"]
-    DLL = LinkedList(data_)
-    print(DLL)
+
+    DLL = LinkedList()
+    DLL.init_linked_list(data_)
+    print(repr(DLL))
+
 
