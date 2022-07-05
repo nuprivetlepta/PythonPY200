@@ -3,7 +3,7 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 248
+  - offset: 244
     length: 33
     placeholder_text: '...  # TODO добавить атрибут tail'
     initial_state:
@@ -13,7 +13,7 @@ files:
     selected: false
     status: Solved
     encrypted_possible_answer: self.tail = self.head
-  - offset: 551
+  - offset: 547
     length: 76
     placeholder_text: 'self.head = append_node  # TODO добавить использование self.tail'
     initial_state:
@@ -23,7 +23,7 @@ files:
     selected: true
     status: Solved
     encrypted_possible_answer: self.head = self.tail = append_node
-  - offset: 641
+  - offset: 637
     length: 125
     placeholder_text: |-
       last_index = self.len - 1  # TODO Переделать через атрибут tail
@@ -39,7 +39,7 @@ files:
     encrypted_possible_answer: |-
       self.linked_nodes(self.tail, append_node)
                   self.tail = append_node
-  - offset: 1530
+  - offset: 1526
     length: 86
     placeholder_text: 'left_node.set_next(right_node)  # TODO next теперь свойство
       имеет setter, используйте это'

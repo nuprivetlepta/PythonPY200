@@ -41,6 +41,15 @@ class DoubleLinkedNode(Node):
         self._prev = prev
 
     @property
+    def next(self):
+        return self._next
+
+    @next.setter    #Не понимаю, нужно ли перезаписывать? В Node есть вопрос по хардкоду
+    def next(self, node_: Optional["DoubleLinkedNode"] = None):
+        self.is_valid(node_)
+        self._next = node_
+
+    @property
     def prev(self):
         return self._prev
 
