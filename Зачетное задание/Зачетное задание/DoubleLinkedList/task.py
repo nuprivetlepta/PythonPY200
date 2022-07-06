@@ -173,16 +173,28 @@ class LinkedList(MutableSequence):
                 return False
 
     def count(self, value: Any) -> int:
-        pass
+        search = value
+        count = 0
+        for node_ in self.iter_gen():
+            if str(node_.value) == search:
+                count += 1
+            return count
 
     def pop(self, index: int = ...) -> Any:
-        pass
+        popped = self.step_by_step_on_nodes(index)
+        self.linked_nodes(self.step_by_step_on_nodes(index - 1), popped.next)
+        return f"popped value is {popped.value}"
 
     def extend(self, values: Iterable[Any]) -> None:
-        pass
+        for value in values:
+            self.append(value)
+
 
     def remove(self, value: Any) -> None:
-        pass
+        del_key = value
+        for node_ in self.iter_gen():
+            if str(node_.value) == del_key:
+                self.__delitem__(node_.index)
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self._list_nodes})"
@@ -235,6 +247,8 @@ if __name__ == '__main__':
     print(node_1)
 
     print(dll.__contains__("4"))
+
+    print(repr(dll))
 
 
 
