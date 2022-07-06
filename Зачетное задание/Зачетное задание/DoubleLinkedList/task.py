@@ -152,6 +152,18 @@ class LinkedList(MutableSequence):
         if not 0 <= index < self._len:
             raise IndexError("Недопустимое значение (меньше 0 или больше длины)")
 
+    def index(self, value: Any, start: int = Optional[None], stop: int = Optional[None]) -> int:
+        searched_value = value
+        self.index_test(start)
+        self.index_test(stop)
+        for i in range(start, stop+1):
+            node_ = self.step_by_step_on_nodes(i)
+            if str(node_.value) == str(searched_value):
+                return i
+            else:
+                 raise IndexError("Нода с таким значением не найдена")
+
+
     def __iter__(self):
         """Наш итератор"""
         return self.iter_gen()
@@ -189,11 +201,10 @@ class LinkedList(MutableSequence):
         for value in values:
             self.append(value)
 
-
     def remove(self, value: Any) -> None:
         del_key = value
         for node_ in self.iter_gen():
-            if str(node_.value) == del_key:
+            if str(node_.value) == str(del_key):
                 self.__delitem__(node_.index)
 
     def __repr__(self):
