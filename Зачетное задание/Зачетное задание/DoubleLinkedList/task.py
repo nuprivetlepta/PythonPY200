@@ -152,16 +152,18 @@ class LinkedList(MutableSequence):
         if not 0 <= index < self._len:
             raise IndexError("Недопустимое значение (меньше 0 или больше длины)")
 
-    def index(self, value: Any, start: int = Optional[None], stop: int = Optional[None]) -> int:
+    def index(self, value: Any, start=None, stop=None) -> int:
         searched_value = value
-        self.index_test(start)
-        self.index_test(stop)
+        if start is not None:
+            self.index_test(start)
+        if stop is not None:
+            self.index_test(stop)
         for i in range(start, stop+1):
             node_ = self.step_by_step_on_nodes(i)
             if str(node_.value) == str(searched_value):
                 return i
             else:
-                 raise IndexError("Нода с таким значением не найдена")
+                raise IndexError("Нода с таким значением не найдена")
 
 
     def __iter__(self):
@@ -232,9 +234,8 @@ class DoubleLinkedList(LinkedList):
         super().__delitem__(index)
 
 
-
 if __name__ == '__main__':
-    list_ = [1, "bar", 3, 4]
+    list_ = ["foo", "bar", 3, 4]
     dll = DoubleLinkedList(list_)
     print(repr(dll))
     print('...')
@@ -257,9 +258,4 @@ if __name__ == '__main__':
     print(repr(node_1))
     print(node_1)
 
-    print(dll.__contains__("4"))
-
-    print(repr(dll))
-
-
-
+    print(dll.index("foo"))
