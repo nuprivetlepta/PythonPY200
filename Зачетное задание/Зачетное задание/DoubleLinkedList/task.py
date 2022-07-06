@@ -154,13 +154,18 @@ class LinkedList(MutableSequence):
 
     def index(self, value: Any, start=None, stop=None) -> int:
         searched_value = value
+
         if start is not None:
             self.index_test(start)
+        else:
+            start = 0
         if stop is not None:
             self.index_test(stop)
-        for i in range(start, stop+1):
+        else:
+            stop = self.__len__
+        for i in range(start, stop):
             node_ = self.step_by_step_on_nodes(i)
-            if str(node_.value) == str(searched_value):
+            if node_.value == searched_value:
                 return i
             else:
                 raise IndexError("Нода с таким значением не найдена")
@@ -171,7 +176,7 @@ class LinkedList(MutableSequence):
         return self.iter_gen()
 
     def iter_gen(self):
-        "генератор для итератора"
+        """генератор для итератора"""
         current_node = self._head
         for _ in range(self._len):
             yield current_node
@@ -235,7 +240,7 @@ class DoubleLinkedList(LinkedList):
 
 
 if __name__ == '__main__':
-    list_ = ["foo", "bar", 3, 4]
+    list_ = ["foo", "bar", 3, 4, "55"]
     dll = DoubleLinkedList(list_)
     print(repr(dll))
     print('...')
@@ -258,4 +263,6 @@ if __name__ == '__main__':
     print(repr(node_1))
     print(node_1)
 
-    print(dll.index("foo"))
+    # print(f"index foo{dll.index('foo')}")
+    # print(dll.index("bar"))
+    print(dll.index("55"))
