@@ -11,7 +11,7 @@ files:
       offset: 399
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: self.__next = None
   - offset: 522
     length: 128
@@ -22,7 +22,7 @@ files:
       offset: 520
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: f"Node({self.value}, {None})" if self.__next is None
       else f"Node({self.value}, Node({self.__next}))"
   - offset: 940
@@ -33,7 +33,7 @@ files:
       offset: 934
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: self.__next = next_
   text: |
     from typing import Any, Optional
@@ -84,8 +84,5 @@ files:
   text: |
     Node(first_node, Node(second_node)) Node(second_node, None)
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 17 Jun 2022 10:31:04 UTC
+status: Failed
 record: -1

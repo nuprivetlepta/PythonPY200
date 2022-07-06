@@ -3,36 +3,29 @@ from typing import Any, Optional
 
 class Node:
     """ Класс, который описывает узел связного списка. """
+
     def __init__(self, value: Any, next_: Optional["Node"] = None):
         self.value = value
-        self._next = next_
-
-    @classmethod
-    def is_valid(cls, node_):
-        if not isinstance(node_, (type(None), cls)):
-            raise TypeError
-
-    def __str__(self) -> str:
-        return f"{self.value}, {self._next}"
-
-    def __repr__(self):
-        return f"Node({self.value}, {repr(self._next)})"
+        self.next = next_
 
     @property
     def next(self):
-        return self._next
+        return self.__next
 
     @next.setter
-    def next(self, node_: Optional["Node"] = None):
-        self.is_valid(node_)
-        self._next = node_
+    def next(self, next_node):
+        self.is_valid(next_node)
+        self.__next = next_node
 
-    "Как мне сделать сеттер, который будет брать тип из своего класса, а не хардкод?"
-    # @classmethod
-    # @next.setter
-    # def next(cls, node_: Optional["cls"] = None):
-    #     cls.is_valid(node_)
-    #     cls._next = node_
+    def is_valid(self, node: Any) -> None:
+        if not isinstance(node, (type(None), Node)):
+            raise TypeError("У ноды неверный тип данных")
+
+    def __repr__(self) -> str:
+        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
+
+    def __str__(self) -> str:
+        return str(self.value)
 
 
 class DoubleLinkedNode(Node):
@@ -41,34 +34,21 @@ class DoubleLinkedNode(Node):
         self._prev = prev
 
     @property
-    def next(self):
-        return self._next
-
-    @next.setter    #Не понимаю, нужно ли перезаписывать? В Node есть вопрос по хардкоду
-    def next(self, node_: Optional["DoubleLinkedNode"] = None):
-        self.is_valid(node_)
-        self._next = node_
-
-    @property
     def prev(self):
         return self._prev
 
     @prev.setter
-    def prev(self, node_: Optional["DoubleLinkedNode"] = None):
-        self.is_valid(node_)
-        self._prev = node_
+    def prev(self, value):
+        self._prev = value
 
-    def __repr__(self):
-        next_repr: str = str(None) \
-            if self.next is None \
-            else f"DoubleLinkedNode({self.next.value}, {None}, {None})"
-        prev_repr: str = str(None) \
-            if self.prev is None \
-            else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
-        return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
+    # def __repr__(self):
+    #     next_repr: str = str(None) if self.next is None else f'DoubleLinkedNode({self.next.value}, {None}, {None})'
+    #     prev_repr: str = str(None) if self._prev is None else f'DoubleLinkedNode({self._prev.value}, {None}, {None})'
+    #     return f'DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})'
 
-    def __str__(self):
-        return super().__str__()
+    def is_valid(self, prev_node: Any) -> None:
+        if not isinstance(prev_node, (type(None), DoubleLinkedNode)):
+            raise TypeError("У ноды неверный тип данных")
 
 
 if __name__ == "__main__":

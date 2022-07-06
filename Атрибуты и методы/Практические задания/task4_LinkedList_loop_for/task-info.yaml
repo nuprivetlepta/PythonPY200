@@ -11,7 +11,7 @@ files:
       offset: 183
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: self.len = 0
   - offset: 615
     length: 45
@@ -21,7 +21,7 @@ files:
       offset: 613
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: self.len = len(self.list_nodes)
   - offset: 1489
     length: 43
@@ -31,7 +31,7 @@ files:
       offset: 1487
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       if not 0 <= index < self.len:  # для for
                   raise IndexError()
@@ -44,7 +44,7 @@ files:
       offset: 2023
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       for value in linked_list:
               print(value)
@@ -165,5 +165,5 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Failed
 record: -1

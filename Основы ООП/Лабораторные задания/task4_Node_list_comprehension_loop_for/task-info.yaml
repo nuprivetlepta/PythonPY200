@@ -30,7 +30,7 @@ files:
       offset: 544
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: '[Node(value) for value in range(10)]'
   - offset: 682
     length: 43
@@ -40,7 +40,7 @@ files:
       offset: 657
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       for node in list_nodes:
               print(node.value)
@@ -70,8 +70,5 @@ files:
 
         # TODO распечатать значения узлов
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 01 Jun 2022 17:08:08 UTC
+status: Failed
 record: -1

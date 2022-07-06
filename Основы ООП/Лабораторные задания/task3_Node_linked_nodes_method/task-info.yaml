@@ -11,7 +11,7 @@ files:
       offset: 1025
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: left_node.set_next(right_node)
   - offset: 1182
     length: 68
@@ -22,7 +22,7 @@ files:
       offset: 1142
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: linked_nodes(first_node, second_node)
   text: |
     from typing import Any, Optional
@@ -82,8 +82,5 @@ files:
     Node(1, Node(2, None))
     Node(2, None)
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 01 Jun 2022 17:48:44 UTC
+status: Failed
 record: -1

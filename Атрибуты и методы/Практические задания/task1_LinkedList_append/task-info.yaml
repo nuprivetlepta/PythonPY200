@@ -11,7 +11,7 @@ files:
       offset: 246
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       if data is not None:
                   for value in data:
@@ -24,7 +24,7 @@ files:
       offset: 1481
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       append_node = Node(value)
 
@@ -144,8 +144,5 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 08 Jun 2022 17:26:32 UTC
+status: Failed
 record: -1
