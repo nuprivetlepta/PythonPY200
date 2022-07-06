@@ -8,8 +8,10 @@ from doublenode import DoubleLinkedNode
 
 
 class LinkedList(MutableSequence):
+    ANY_NODE = Node
+
     def __init__(self, data: Iterable = None):
-        self._list_nodes = []
+        self._list_nodes = self.init_linked_list(data)
         self._len = 0
         self._head: Optional[Node] = None
         self._tail = self._head
@@ -20,35 +22,36 @@ class LinkedList(MutableSequence):
 
     def init_linked_list(self, data: Iterable):
         """ Метод, который создает вспомогательный список и связывает в нём узлы. """
-        self._list_nodes = [Node(value) for value in data]
+        self._list_nodes = [self.ANY_NODE(value) for value in data]
 
         for i in range(len(self._list_nodes)-1):
             left_node = self._list_nodes[i]
             right_node = self._list_nodes[i+1]
             self.linked_nodes(left_node, right_node)
+        return self._list_nodes
 
     @property
     def get_list_nodes(self):
         """Метод превращает python.list в неизменяемое свойство, это его геттер"""
         return self._list_nodes
 
-    def step_by_step_on_nodes(self, index: int) -> Node:
+    def step_by_step_on_nodes(self, index: int) -> ANY_NODE:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
-        if not isinstance(index, int):
-            raise TypeError("Индекс может быть только целочисленным")
-
-        if not 0 <= index < self._len:  # для for
-            raise IndexError()
+        # if not isinstance(index, int):
+        #     raise TypeError("Индекс может быть только целочисленным")
+        #
+        # if not 0 <= index < self._len:  # для for
+        #     raise IndexError()
+        self.index_test(index)
 
         current_node = self._head
         for _ in range(index):
             current_node = current_node.next
-
         return current_node
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
-        append_node = Node(value)
+        append_node = self.ANY_NODE(value)
 
         if self._head is None:
             self._head = self._tail = append_node
@@ -59,7 +62,7 @@ class LinkedList(MutableSequence):
         self._len += 1
 
     @staticmethod
-    def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
+    def linked_nodes(left_node: ANY_NODE, right_node: Optional[ANY_NODE] = None) -> None:
         """
         Функция, которая связывает между собой два узла.
 
@@ -83,11 +86,12 @@ class LinkedList(MutableSequence):
 
     def __delitem__(self, index: int):
         """Метод удаляет ноду из нашего списка и связывает соседние"""
-        if not isinstance(index, int):  # Проверяем валидность индекса по типу.
-            raise TypeError
-
-        if not 0 <= index < self._len:   # Проверяем валидность индекса по диапазону значения.
-            raise IndexError
+        # if not isinstance(index, int):  # Проверяем валидность индекса по типу.
+        #     raise TypeError
+        #
+        # if not 0 <= index < self._len:   # Проверяем валидность индекса по диапазону значения.
+        #     raise IndexError ЗАМЕНЕНО МЕТОДОМ index_test
+        self.index_test(index)
 
         del_node = self.step_by_step_on_nodes(index)    # Находим ноду ранее написанным итератором
 
@@ -122,16 +126,16 @@ class LinkedList(MutableSequence):
         """
         if not isinstance(index, int):  # Проверяем тип индекса
             raise TypeError
-        insert_node = Node(value)  # Создаём экземпляр класса с переданным значением
+        insert_node = self.ANY_NODE(value)  # Создаём экземпляр класса с переданным значением
 
-        if 0 < index < self._len:  # Проверка индекса по условию
+        if 0 < index < self._len:  # Проверка индекса без помощи index_test т.к. IndexError сломает суть метода.
             prev_node = self.step_by_step_on_nodes(index - 1)  # Находим предыдущую ноду
             current_node = self.step_by_step_on_nodes(index)  # Находим подвигаемую ноду.
             self.linked_nodes(insert_node, current_node)  # Связываем нашу ноду с подвигаемой
             self.linked_nodes(prev_node, insert_node)  # Связываем предыдущую ноду с вставленной.
 
         elif index == 0:
-            current_node = self.head  # Заводим переменную с "головой" списка
+            current_node = self._head  # Заводим переменную с "головой" списка
             self.linked_nodes(insert_node, current_node)  # Связываем вставляемую ноду с подвигаемой
             self._head = insert_node  # Переназначаем "голову" списка
 
@@ -140,14 +144,56 @@ class LinkedList(MutableSequence):
             self.linked_nodes(prev_node, insert_node)  # Вставляем нашу ноду в конец списка
         self._len += 1  # Увеличиваем длину списка после добавления.
 
+    """Блок доп. заданий"""
+    def index_test(self, index):    # Метод может быть статическим, если убрать из него проверку IndexError
+        """проверка передаваемого индекса на валидность"""
+        if not isinstance(index, int):
+            raise TypeError("Может быть только целочисленным")
+        if not 0 <= index < self._len:
+            raise IndexError("Недопустимое значение (меньше 0 или больше длины)")
+
+    def __iter__(self):
+        """Наш итератор"""
+        return self.iter_gen()
+
+    def iter_gen(self):
+        "генератор для итератора"
+        current_node = self._head
+        for _ in range(self._len):
+            yield current_node
+            current_node = current_node.next
+
+    def __contains__(self, value):
+        """"Поиск содержимого. Пока что возвращает true только со значением 1 :( """
+        search = value
+        for node_ in self.iter_gen():
+            if str(node_.value) == search:
+                return True
+            else:
+                return False
+
+    def count(self, value: Any) -> int:
+        pass
+
+    def pop(self, index: int = ...) -> Any:
+        pass
+
+    def extend(self, values: Iterable[Any]) -> None:
+        pass
+
+    def remove(self, value: Any) -> None:
+        pass
+
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.get_list_nodes})"
+        return f"{self.__class__.__name__}({self._list_nodes})"
 
     def __str__(self):
-        return f"{self.get_list_nodes}"
+        return f"{self._list_nodes}"
 
 
 class DoubleLinkedList(LinkedList):
+    ANY_NODE = DoubleLinkedNode
+
     @staticmethod
     def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional[DoubleLinkedNode] = None) -> None:
         """
@@ -159,12 +205,36 @@ class DoubleLinkedList(LinkedList):
         left_node.next = right_node
         right_node.prev = left_node
 
+    def __delitem__(self, index):
+        super().__delitem__(index)
+
+
 
 if __name__ == '__main__':
-    data_ = ["mama", "papa", "sasha", "lera", "ya"]
+    list_ = [1, "bar", 3, 4]
+    dll = DoubleLinkedList(list_)
+    print(repr(dll))
+    print('...')
+    print(dll)
+    dll.__delitem__(0)
 
-    DLL = LinkedList()
-    DLL.init_linked_list(data_)
-    print(repr(DLL))
+    print(f"Zero index: {dll[0]}")
+    print(f'golova {dll.head}')
+    print(dll)
+    print('...')
+    print('...')
+    print('...')
+    print(f"Get list nodes {dll.get_list_nodes}")
+
+    node_0 = DoubleLinkedNode('prev')
+    node_1 = DoubleLinkedNode(1)
+    node_2 = DoubleLinkedNode(2)
+    DoubleLinkedList.linked_nodes(node_1, node_2)
+    DoubleLinkedList.linked_nodes(node_0, node_1)
+    print(repr(node_1))
+    print(node_1)
+
+    print(dll.__contains__("4"))
+
 
 

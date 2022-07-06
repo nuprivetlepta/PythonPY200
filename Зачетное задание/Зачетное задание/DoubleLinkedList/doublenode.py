@@ -18,13 +18,13 @@ class DoubleLinkedNode(Node):
         self._prev = node_
 
     def __repr__(self):
-        next_repr: str = str(None) \
-            if self.next is None \
-            else f"DoubleLinkedNode({self.next.value}, {None}, {None})"
-        prev_repr: str = str(None) \
-            if self.prev is None \
-            else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
-        return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
+        # next_repr: str = str(None) \
+        #     if self.next is None \
+        #     else f"DoubleLinkedNode({self.next.value}, {None}, {None})"
+        # prev_repr: str = str(None) \
+        #     if self.prev is None \
+        #     else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
+        return f"({self._prev}, {self.value}, {self._next})"
 
     def __str__(self):
         return super().__str__()

@@ -13,10 +13,10 @@ class Node:
             raise TypeError
 
     def __str__(self) -> str:
-        return f"{self.value}, {self._next}"
+        return f"{self.value}"
 
     def __repr__(self):
-        return f"Node({self.value}, {repr(self._next)})"
+        return f"{self.__class__.__name__}({self.value}, {repr(self._next)})"
 
     @property
     def next(self):
