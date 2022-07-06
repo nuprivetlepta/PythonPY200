@@ -15,9 +15,6 @@ files:
     if __name__ == "__main__":
         ...
   learner_created: false
-- name: __init__.py
-  visible: false
-  learner_created: false
 - name: tests/__init__.py
   visible: false
   learner_created: false
@@ -51,6 +48,9 @@ files:
 - name: test_task.py
   visible: true
   learner_created: true
+- name: __init__.py
+  visible: false
+  learner_created: false
 status: Solved
 feedback:
   message: Congratulations!

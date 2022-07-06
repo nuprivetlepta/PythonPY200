@@ -11,7 +11,7 @@ files:
       offset: 27
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       class Glass:
           def __init__(self, capacity_volume: Union[int, float], occupied_volume: Union[int, float]):
@@ -53,5 +53,5 @@ files:
   text: |
     200 100
   learner_created: false
-status: Unchecked
+status: Failed
 record: -1

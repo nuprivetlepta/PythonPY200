@@ -1,9 +1,7 @@
 from collections.abc import MutableSequence
-
 from typing import Any, Iterable, Optional
 
 from node import Node
-
 from doublenode import DoubleLinkedNode
 
 
@@ -11,7 +9,6 @@ class LinkedList(MutableSequence):
     ANY_NODE = Node
 
     def __init__(self, data: Iterable = None):
-        self._list_nodes = self.init_linked_list(data)
         self._len = 0
         self._head: Optional[Node] = None
         self._tail = self._head
@@ -37,17 +34,17 @@ class LinkedList(MutableSequence):
 
     def step_by_step_on_nodes(self, index: int) -> ANY_NODE:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
-        # if not isinstance(index, int):
-        #     raise TypeError("Индекс может быть только целочисленным")
-        #
-        # if not 0 <= index < self._len:  # для for
-        #     raise IndexError()
         self.index_test(index)
 
         current_node = self._head
         for _ in range(index):
             current_node = current_node.next
         return current_node
+
+        # iter_nodes = iter(self)
+        # for _ in range(index):
+        #     current_node = next(iter_nodes)
+        # return current_node
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
@@ -74,7 +71,7 @@ class LinkedList(MutableSequence):
     def __getitem__(self, index):
         """ Метод возвращает значение узла по указанному индексу. """
         _node = self.step_by_step_on_nodes(index)
-        return _node
+        return _node.value
 
     # def __setitem__(self, key, value): "Почему автоматически появляются key, value?"
     #     pass
@@ -83,6 +80,10 @@ class LinkedList(MutableSequence):
         """Метод присваивает введенное значение узлу"""
         _node = self.step_by_step_on_nodes(index)
         _node.value = value
+
+    def _delete_first_node(self):
+        new_head = self.step_by_step_on_nodes(1)
+        self._head = new_head
 
     def __delitem__(self, index: int):
         """Метод удаляет ноду из нашего списка и связывает соседние"""
@@ -95,23 +96,17 @@ class LinkedList(MutableSequence):
 
         del_node = self.step_by_step_on_nodes(index)    # Находим ноду ранее написанным итератором
 
-        if del_node == self._head:   # Проверка удаляемой ноды, а ни первая ли она?
-            self.head = del_node.next   # Присваемваем голове списка "вторую" ноду.
-            del_node.value = None   # А НАДО ЛИ? Очищаем удаляемую ноду от значений, во имя памяти
-            del_node.next = None    # Отвязываем от удаляемой ноды информацию о следующей.
+        if del_node is self._head:   # Проверка удаляемой ноды, а ни первая ли она?
+            self._delete_first_node()
         elif index == self._len - 1:    # Проверка удаляемой ноды, ни последняя ли она?
             prev_node = self.step_by_step_on_nodes(index - 1)   # Объявляем предыдущую ноду
-            del_node.value = None   # Очищаем удаляемую ноду от значения, А НАДО ЛИ?
             self.linked_nodes(prev_node, None)    # Очищаем у ставшей последней ноды ссылку next
         else:
-            del_node.value = None   # Очищаем удаляемую ноду
             prev_node = self.step_by_step_on_nodes(index - 1)   # Ищем предыдущую
             next_node = self.step_by_step_on_nodes(index + 1)   # Ищем следующую
             self.linked_nodes(prev_node, next_node)     # Связываем граничные ноды
-            del_node.next = None    # Убираем привязку удалённой ноды к следующей.
         self._len -= 1    # После каждого выполнения метода убираем одну единицу из длины.
 
-    @property
     def __len__(self):
         """Метод превращает наш атрибут self.len в свойство, это геттер,
         сеттер не нужен, т.к. пользователь не меняет значение длины напрямую,
@@ -152,24 +147,21 @@ class LinkedList(MutableSequence):
         if not 0 <= index < self._len:
             raise IndexError("Недопустимое значение (меньше 0 или больше длины)")
 
-    def index(self, value: Any, start=None, stop=None) -> int:
+    def index(self, value: Any, start=0, stop=None) -> int:
         searched_value = value
 
-        if start is not None:
-            self.index_test(start)
-        else:
-            start = 0
+        self.index_test(start)
+
         if stop is not None:
             self.index_test(stop)
         else:
-            stop = self.__len__
+            stop = self._len  # len(self)
         for i in range(start, stop):
             node_ = self.step_by_step_on_nodes(i)
             if node_.value == searched_value:
                 return i
-            else:
-                raise IndexError("Нода с таким значением не найдена")
 
+        raise ValueError("Нода с таким значением не найдена")
 
     def __iter__(self):
         """Наш итератор"""
@@ -188,21 +180,21 @@ class LinkedList(MutableSequence):
         for node_ in self.iter_gen():
             if str(node_.value) == search:
                 return True
-            else:
-                return False
+
+        return False
 
     def count(self, value: Any) -> int:
         search = value
         count = 0
         for node_ in self.iter_gen():
-            if str(node_.value) == search:
+            if node_.value == search:  # str не нужен
                 count += 1
-            return count
+        return count  # один раз в конце
 
     def pop(self, index: int = ...) -> Any:
         popped = self.step_by_step_on_nodes(index)
         self.linked_nodes(self.step_by_step_on_nodes(index - 1), popped.next)
-        return f"popped value is {popped.value}"
+        return popped.value
 
     def extend(self, values: Iterable[Any]) -> None:
         for value in values:
@@ -210,15 +202,15 @@ class LinkedList(MutableSequence):
 
     def remove(self, value: Any) -> None:
         del_key = value
-        for node_ in self.iter_gen():
-            if str(node_.value) == str(del_key):
-                self.__delitem__(node_.index)
+        for index, node_ in enumerate(self.iter_gen()):
+            if node_.value == del_key:
+                del self[index]
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self._list_nodes})"
+        return f"{self.__class__.__name__}({[node for node in self]})"
 
     def __str__(self):
-        return f"{self._list_nodes}"
+        return f"{[node for node in self]}"
 
 
 class DoubleLinkedList(LinkedList):
@@ -235,34 +227,15 @@ class DoubleLinkedList(LinkedList):
         left_node.next = right_node
         right_node.prev = left_node
 
-    def __delitem__(self, index):
-        super().__delitem__(index)
+    def _delete_first_node(self):
+        new_head = self.step_by_step_on_nodes(1)
+        self._head = new_head
+        self._head.prev = None
 
 
 if __name__ == '__main__':
-    list_ = ["foo", "bar", 3, 4, "55"]
+    list_ = [1, 2, 3, 4]
     dll = DoubleLinkedList(list_)
-    print(repr(dll))
-    print('...')
     print(dll)
-    dll.__delitem__(0)
+    print(dll.pop(2))
 
-    print(f"Zero index: {dll[0]}")
-    print(f'golova {dll.head}')
-    print(dll)
-    print('...')
-    print('...')
-    print('...')
-    print(f"Get list nodes {dll.get_list_nodes}")
-
-    node_0 = DoubleLinkedNode('prev')
-    node_1 = DoubleLinkedNode(1)
-    node_2 = DoubleLinkedNode(2)
-    DoubleLinkedList.linked_nodes(node_1, node_2)
-    DoubleLinkedList.linked_nodes(node_0, node_1)
-    print(repr(node_1))
-    print(node_1)
-
-    # print(f"index foo{dll.index('foo')}")
-    # print(dll.index("bar"))
-    print(dll.index("55"))

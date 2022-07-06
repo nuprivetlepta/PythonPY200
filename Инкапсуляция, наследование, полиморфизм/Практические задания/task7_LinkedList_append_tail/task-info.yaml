@@ -11,7 +11,7 @@ files:
       offset: 245
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: self.tail = self.head
   - offset: 547
     length: 76
@@ -21,7 +21,7 @@ files:
       offset: 548
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: self.head = self.tail = append_node
   - offset: 637
     length: 125
@@ -35,7 +35,7 @@ files:
       offset: 639
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       self.linked_nodes(self.tail, append_node)
                   self.tail = append_node
@@ -48,7 +48,7 @@ files:
       offset: 1584
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: left_node.next = right_node
   text: |
     from typing import Any, Iterable, Optional
@@ -180,8 +180,5 @@ files:
             self.is_valid(next_)
             self._next = next_
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 17 Jun 2022 11:05:51 UTC
+status: Failed
 record: -1

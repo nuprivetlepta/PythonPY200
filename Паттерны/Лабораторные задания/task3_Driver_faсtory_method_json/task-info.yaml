@@ -11,7 +11,7 @@ files:
       offset: 641
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       class JsonFileDriverFactoryMethod(DriverFactoryMethod):
           DEFAULT_NAME = 'untitled.json'
@@ -78,7 +78,7 @@ files:
       offset: 1172
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       class JsonFileDriver(IStructureDriver):
           def __init__(self, json_filename):
@@ -154,6 +154,6 @@ files:
         read_data = driver.read()
         print(read_data)
   learner_created: false
-status: Unchecked
+status: Solved
 record: -1
 post_submission_on_open: true

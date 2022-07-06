@@ -13,7 +13,7 @@ files:
       offset: 144
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       print(self.__dict__)
               self.capacity_volume = capacity_volume  # объем стакана
@@ -41,8 +41,5 @@ files:
     {}
     {'capacity_volume': 200, 'occupied_volume': 100}
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Wed, 08 Jun 2022 15:11:22 UTC
+status: Failed
 record: -1

@@ -11,7 +11,7 @@ files:
       offset: 238
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       def __init__(self, a, b):
               self.a = a
@@ -28,7 +28,7 @@ files:
       offset: 364
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       def __init__(self, r):
               self.r = r
@@ -80,8 +80,5 @@ files:
     Вызван метод класса Rectangle
     Вызван метод класса Circle
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 17 Jun 2022 10:21:26 UTC
+status: Failed
 record: -1

@@ -11,7 +11,7 @@ files:
       offset: 2178
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       def __eq__(self, other: "LinkedList") -> bool:
               if not isinstance(other, LinkedList):
@@ -162,5 +162,5 @@ files:
             self.is_valid(next_)
             self._next = next_
   learner_created: false
-status: Unchecked
+status: Failed
 record: -1

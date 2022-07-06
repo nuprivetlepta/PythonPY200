@@ -54,7 +54,7 @@ files:
       offset: 183
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: 'self.head: Optional[Node] = None'
   - offset: 532
     length: 56
@@ -64,7 +64,7 @@ files:
       offset: 532
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: self.head = self.list_nodes[0]
   - offset: 1346
     length: 41
@@ -74,7 +74,7 @@ files:
       offset: 1346
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError
@@ -86,7 +86,7 @@ files:
       offset: 1412
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: self.head
   - offset: 1462
     length: 57
@@ -96,7 +96,7 @@ files:
       offset: 1462
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       for _ in range(index):
                   current_node = current_node.next
@@ -108,7 +108,7 @@ files:
       offset: 1674
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       node = self.step_by_step_on_nodes(index)
               return node.value
@@ -171,5 +171,5 @@ files:
 
         print(linked_list[1])
   learner_created: false
-status: Unchecked
+status: Failed
 record: -1

@@ -11,7 +11,7 @@ files:
       offset: 2357
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       self.head = None
               self.tail = None
@@ -131,7 +131,7 @@ files:
       offset: 952
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       def __del__(self):
               print("Вызван метод \"__del__\"")
@@ -172,5 +172,5 @@ files:
 
         # TODO переоределить метод __del__
   learner_created: false
-status: Unchecked
+status: Failed
 record: -1

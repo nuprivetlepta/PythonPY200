@@ -11,7 +11,7 @@ files:
       offset: 1391
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: IndexError()
   - offset: 1692
     length: 6
@@ -21,7 +21,7 @@ files:
       offset: 1692
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       node = self.step_by_step_on_nodes(index)
               return node.value
@@ -33,7 +33,7 @@ files:
       offset: 1739
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: return [linked_list_value for linked_list_value in
       self]
   - offset: 1843
@@ -44,7 +44,7 @@ files:
       offset: 1843
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: return f"{self.__class__.__name__}({self.to_list()})"
   - offset: 1944
     length: 61
@@ -54,7 +54,7 @@ files:
       offset: 1944
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: return f"{self.to_list()}"
   text: |
     from typing import Iterable, Optional, Any
@@ -178,8 +178,5 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Sat, 11 Jun 2022 08:13:49 UTC
+status: Failed
 record: -1

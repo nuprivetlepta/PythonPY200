@@ -48,7 +48,7 @@ files:
       offset: 2863
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError()
@@ -199,8 +199,5 @@ files:
     [0, 1, 'wow', 2, 3, 4, 100]
     True
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 10 Jun 2022 15:43:44 UTC
+status: Failed
 record: -1

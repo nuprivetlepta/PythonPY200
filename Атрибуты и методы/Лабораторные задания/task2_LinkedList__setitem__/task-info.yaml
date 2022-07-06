@@ -11,7 +11,7 @@ files:
       offset: 1740
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: |-
       def __setitem__(self, index: int, value: Any) -> None:
               """ Метод устанавливает значение узла по указанному индексу. """
@@ -25,7 +25,7 @@ files:
       offset: 2186
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Failed
     encrypted_possible_answer: linked_list[1] = 100
   text: |
     from typing import Iterable, Optional, Any
@@ -155,8 +155,5 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 10 Jun 2022 12:51:42 UTC
+status: Failed
 record: -1
