@@ -16,7 +16,7 @@ class Node:
         return f"{self.value}"
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.value}, {repr(self._next)})"
+        return f"{self.__class__.__name__}({self.value}, {self._next})"
 
     @property
     def next(self):
